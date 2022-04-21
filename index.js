@@ -4,14 +4,14 @@ button.forEach(button=>
   button.addEventListener('click',function(){
     var sound1 = this.innerHTML;
     makeSound(sound1);
-
+    animation(sound1);
 
 
 
   }))
   document.addEventListener("keypress",function(event){
   makeSound(event.key);
-
+  animation(event.key);
 })
  function makeSound(key){
 
@@ -52,3 +52,13 @@ button.forEach(button=>
      break;
      default:
  }};
+function animation(currentKey){
+
+  var activeButton = document.querySelector("."+currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function(){
+        activeButton.classList.remove("pressed");
+
+
+  },300);
+    }
